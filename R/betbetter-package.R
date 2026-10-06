@@ -1,0 +1,25 @@
+#' betbetter: Access the Bet Better Open Sports Model API
+#'
+#' Retrieves published statistical model estimates for upcoming sporting
+#' fixtures. For each rated selection the API returns the model's estimated
+#' probability that the selection occurs and the decimal odds implied by that
+#' probability.
+#'
+#' @section What the API does not provide:
+#' The upstream service publishes model output only. Bookmaker identities,
+#' market prices and implied market probabilities are not distributed, because
+#' the provider's odds licence permits publishing derived work but not
+#' redistribution of the price feed. No function in this package can therefore
+#' return a bookmaker price.
+#'
+#' @section Licence of the retrieved data:
+#' Data returned by the API is published under CC BY 4.0. Attribution to
+#' Bet Better (<https://betbetter.world>) is required when it is redistributed.
+#'
+#' @section Caveats:
+#' Values are model estimates, not statements of certainty. A selection
+#' estimated at 70% is expected to fail roughly three times in ten. Feeds are
+#' empty outside a competition's season, which is expected rather than an error.
+#'
+#' @keywords internal
+"_PACKAGE"

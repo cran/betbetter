@@ -1,0 +1,30 @@
+Package: betbetter
+Title: Access the Bet Better Open Sports Model API
+Version: 0.1.0
+Authors@R: 
+    person("Edward", "Glush", email = "edward.glush@gmail.com",
+           role = c("aut", "cre"))
+Description: Retrieves published statistical model estimates for upcoming
+    sporting fixtures from the Bet Better open API, covering Australian
+    rules football, baseball, basketball, American football, ice hockey,
+    association football, tennis and mixed martial arts. For each rated
+    selection the interface returns the model's estimated probability that
+    the selection occurs, together with the decimal odds implied by that
+    probability. No registration or authentication is required. Bookmaker
+    prices are not published by the API and are therefore not available
+    through this package.
+License: MIT + file LICENSE
+URL: https://betbetter.world/api/, https://betbetter.world/studies/
+BugReports: https://betbetter.world/About
+Encoding: UTF-8
+Imports: httr2, jsonlite
+Suggests: knitr, rmarkdown, testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+RoxygenNote: 7.3.2
+NeedsCompilation: no
+Packaged: 2026-09-18 04:04:54 UTC; Administrator
+Author: Edward Glush [aut, cre]
+Maintainer: Edward Glush <edward.glush@gmail.com>
+Repository: CRAN
+Date/Publication: 2026-10-06 15:50:02 UTC

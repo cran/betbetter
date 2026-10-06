@@ -1,0 +1,17 @@
+d7d53ef1f2605f5579bba441733e90ff *DESCRIPTION
+a7acf2295f6ae70868d3aae8a1ae8e91 *LICENSE
+a01367754b8d18996d856aa6d3df51ec *NAMESPACE
+9029467f45faef3e14a411d5c3a426fd *R/api.R
+bcb3953dc58215b667de130c1ebb797c *R/betbetter-package.R
+386b40f2882605ab7c2fbbf7721ebf5d *README.md
+6268bdbe04f65400f871625797fdee22 *build/vignette.rds
+50a5d8db59033e76a61fe23d72d2e3c2 *inst/doc/betbetter.R
+12b1828be42e383c0c29f1201aa78d1c *inst/doc/betbetter.Rmd
+4fabb4475408482f8a0b10d99c7962bd *inst/doc/betbetter.html
+5fb05491050848af864bbe936de3cc93 *man/bb_feeds.Rd
+f0e00ac602764775337b1375589a9262 *man/bb_leagues.Rd
+bfe0174caadad7120a577b69aa0bbfc1 *man/bb_picks.Rd
+ab07878c40eeaf1ac744712bbb7d0735 *man/betbetter-package.Rd
+68d0c86750a4547c74d076276d88e5b4 *tests/testthat.R
+56aaf42d37306c683c8f4e4f40ca63ec *tests/testthat/test-api.R
+12b1828be42e383c0c29f1201aa78d1c *vignettes/betbetter.Rmd

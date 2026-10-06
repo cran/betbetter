@@ -1,0 +1,94 @@
+---
+title: "Getting started with betbetter"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with betbetter}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", eval = FALSE)
+```
+
+## What this package retrieves
+
+`betbetter` is a thin client for a free, open sports model API. For each
+upcoming fixture the service publishes the model's estimated probability that a
+selection occurs, and the decimal odds that probability implies.
+
+Chunks in this vignette are not evaluated, because they require network access.
+
+```{r setup}
+library(betbetter)
+```
+
+## Available leagues
+
+```{r}
+bb_leagues()
+```
+
+Fifteen competitions are covered, spanning Australian rules football, baseball,
+basketball, American football, ice hockey, association football, tennis and
+mixed martial arts.
+
+## Retrieving estimates
+
+```{r}
+afl <- bb_picks("afl")
+head(afl[, c("game", "market", "selection", "model_probability", "fair_odds")])
+```
+
+`model_probability` is a proportion between 0 and 1. `fair_odds` is its
+reciprocal: the decimal price at which a bet on that selection would break even
+if the model were exactly right.
+
+## Narrowing the results
+
+```{r}
+strong <- bb_picks("afl", min_probability = 0.7, limit = 10)
+```
+
+Match-level and player-level markets can be requested separately:
+
+```{r}
+lines <- bb_picks("afl", feed = "games")
+props <- bb_picks("afl", feed = "props")
+```
+
+## Out of season
+
+A league with no upcoming fixtures returns a zero-row data frame:
+
+```{r}
+nrow(bb_picks("nfl"))  # 0 during the off-season
+```
+
+This is expected behaviour, not an error. If the API cannot be reached,
+`bb_picks()` emits a message and returns `NULL`, so scripts can test for it:
+
+```{r}
+result <- bb_picks("afl")
+if (is.null(result)) {
+  message("API unavailable, skipping")
+}
+```
+
+## Interpreting the numbers
+
+These are model estimates, not predictions of certainty. A selection estimated
+at 70% is expected to fail roughly three times in ten; a run of losing
+selections at that probability is ordinary variance rather than evidence the
+model is broken.
+
+The API publishes **no bookmaker prices**. There is no bookmaker identity,
+market price or market-implied probability in the response, because the
+upstream odds licence permits publishing derived work but not redistribution of
+the price feed. Comparing these estimates against a market price requires
+sourcing that price yourself.
+
+## Licence and attribution
+
+Data retrieved through this package is published under CC BY 4.0 and requires
+attribution to Bet Better (<https://betbetter.world>) when redistributed.
